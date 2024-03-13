@@ -1,18 +1,24 @@
 -- Create database
-CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `test`;
+CREATE DATABASE IF NOT EXISTS biblioteca;
+
+-- Use database
+USE biblioteca;
 
 -- Create table
-CREATE TABLE IF NOT EXISTS `test` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS biblioteca.usuario (
+  id_usuario INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
+  direccion VARCHAR(150),
+  telefono CHAR(13),
+  rol ENUM('admin','usuario','reporter'),
+  PRIMARY KEY (id_usuario)
+)
+-- Monstrar las tablas
+show tables;
 
--- Insert data
-INSERT INTO `test` (`id`, `name`, `email`, `phone`, `created_at`) VALUES
-(1, 'John Doe', 'jhon.doe@mail.com', '1234567890', '2019-01-01 00:00:00'),
-(2, 'Jane Doe', 'jane.doe@mail.com', '0987654321', '2019-01-01 00:00:00');
+-- Camel Case
+-- nombreDeUsuario
+-- Snake CASE
+-- nombre_de_usuario
